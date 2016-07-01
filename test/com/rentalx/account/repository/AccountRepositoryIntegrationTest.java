@@ -1,27 +1,26 @@
 package com.rentalx.account.repository;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.rentalx.account.Account;
+import com.rentalx.account.Organization;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="file:WebContent/WEB-INF/application-context-test.xml")
 public class AccountRepositoryIntegrationTest {
+	@Autowired
+	private AccountRepository accountRepository;
+	@Autowired
+	private OrganizationRepository organizationRepository;
 	
-	public static void createAccount (){
-		ApplicationContext context = new FileSystemXmlApplicationContext ("WebContent/WEB-INF/application-context.xml");
-		
-		AccountRepository accountRepository = context.getBean("accountRepository" , AccountRepository.class);
-		
-		//Account account = new Account ();
-		
-		
-		
+	@Test
+	public void createAccount (){
+		Organization organization = new Organization();
+		organizationRepository.create(organization);
 	}
 	
-
-	public static void main(String[] args) {
-		
-		
-	}	
 
 }

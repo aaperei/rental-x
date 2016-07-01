@@ -1,5 +1,6 @@
 package com.rentalx.account;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,5 +22,11 @@ public class Organization extends Account {
 	private List<Car> carList;
 	@OneToMany
 	private List<Supplier> supplierList; 
+	
+	public Organization (){
+		bookingList = new ArrayList<>();
+		carList = new ArrayList<>();
+		supplierList = new ArrayList<>();
+	}
 	
 }

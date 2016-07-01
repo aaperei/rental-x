@@ -2,6 +2,8 @@ package com.rentalx.vehicle;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -11,6 +13,7 @@ import lombok.Data;
 @Entity
 public class Car {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	@OneToMany
 	private List<Traffic> trafficList;
